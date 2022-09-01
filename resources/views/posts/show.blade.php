@@ -9,6 +9,10 @@
     <body>
         <h1>Blog Name</h1>
         <p class='edit'>[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
+        <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
+            @csrf
+            @method('DELETE')
+        <button type="submit">delete</button>
         <div class='post'>
                 <h2 class='title'>{{ $post->title }}</h2>
                 <p class='body'>{{ $post->body }}</p>
