@@ -10,7 +10,6 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        {{Auth::user()->name}}
         <h1>Blog Name</h1>
         <p class='create'>[<a href='/posts/create'>create</a>]</p>
         <div class='posts'>
@@ -19,8 +18,9 @@
                     <h2 class='title'>
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
-                    <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
+                    <a href="">{{ $post->category->name }}</a>
                     <p class='body'>{{ $post->body }}</p>
+                    <div class='back'>[<a href='/'>back</a>]</div>
                 </div>
             @endforeach
         </div>

@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -13,11 +16,14 @@
             @csrf
             @method('DELETE')
         <button type="submit">delete</button>
+        </form>
         <div class='post'>
                 <h2 class='title'>{{ $post->title }}</h2>
                 <p class='body'>{{ $post->body }}</p>
                 <p class='updated_at'>{{ $post->updated_at }}</p>
+               <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
         </div>
         <div class='back'>[<a href='/'>back</a>]</div>
     </body>
 </html>
+@endsection
